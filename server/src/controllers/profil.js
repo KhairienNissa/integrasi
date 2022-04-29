@@ -1,0 +1,123 @@
+const { user, profil } = require("../../models");
+
+exports.addProfil = async (req, res) => {
+  try {
+    const data = req.body
+
+    const newProfil = await profil.create({
+         ...data,
+         idUser : req.user.id
+       })
+
+    res.send({
+      status: "success",
+      data: {
+        newProfil,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({
+      status: "failed",
+      message: "Server Error",
+    });
+  }
+};
+
+exports.getProfils = async (req, res) => {
+  try {
+    const profils = await profil.findAll({
+      attributes: {
+        exclude: ["password", "createdAt", "updatedAt"],
+      },
+    });
+
+    res.send({
+      status: "success",
+      data: {
+        profils,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({
+      status: "failed",
+      message: "Server Error",
+    });
+  }
+};
+
+exports.getProfil = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const data = await profil.findOne({
+      where: {
+        id,
+      },
+      attributes: {
+        exclude: ["password", "createdAt", "updatedAt"],
+      },
+    });
+
+    res.send({
+      status: "success",
+      data: {
+        profil : data,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({
+      status: "failed",
+      message: "Server Error",
+    });
+  }
+};
+
+exports.updateProfil = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    await profil.update(req.body, {
+      where: {
+        id,
+      },
+    });
+
+    res.send({
+      status: "success",
+      message: `Update profil id: ${id} finished`,
+      data: req.body,
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({
+      status: "failed",
+      message: "Server Error",
+    });
+  }
+};
+
+exports.deleteProfil = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    await profil.destroy({
+      where: {
+        id,
+      },
+    });
+
+    res.send({
+      status: "success",
+      message: `Delete profil id: ${id} finished`,
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({
+      status: "failed",
+      message: "Server Error",
+    });
+  }
+};
