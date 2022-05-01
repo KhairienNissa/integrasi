@@ -28,7 +28,7 @@ return (
     <div>
           <nav className="navbar navbar-expand-lg navbar-dark text-white ">
           <div className="container-fluid px-5 pt-2">
-        <NavLink to="/" exact><img src={frame} width="60"/></NavLink> 
+        <img src={frame} width="70"/>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

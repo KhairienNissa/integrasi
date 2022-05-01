@@ -22,9 +22,9 @@ body {
 } */
 .buttonEdit {
     width: 110px;
-    height: 30px;
+    height: 35px;
     color: white;
-    background-color:#56C05A; 
+    background-color:#56C05A !important; 
     border-radius: 5px;
     border: 0;
 }
@@ -39,10 +39,10 @@ body {
 
 .buttonDelete {
     width: 110px;
-    height: 30px;
+    height: 35px;
     color: white;
     border-radius: 5px;
-    background-color: #F74D4D;   
+    background-color: #F74D4D !important;   
     border: 0;
 }
 
@@ -229,3 +229,15 @@ border-radius: 3px;
     color: #ffffff;
   }
   
+  .input-category-product {
+    background-color : rgb(131, 131, 131) !important;
+    border: 3px solid white !important;
+    height: 40px;
+    width: 400px;
+  }
+
+  .alertfailed {
+    width: 416px;
+    background-color:rgb(148, 12, 12);
+    font-size: larger;
+  }

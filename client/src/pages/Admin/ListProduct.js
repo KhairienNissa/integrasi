@@ -15,7 +15,7 @@ const Product = (Props) => {
         const response = await API.get('/products');
         return response.data.data;
       });
-    
+     
     return (
        <div>
            <div>
@@ -48,7 +48,7 @@ const Product = (Props) => {
                             <tbody> 
                                 {products?.map((item, index) => {
                                     return (
-                                    <TableProd item={item} key={index} />
+                                    <TableProd item={item} key={index} number={index+1}/>
                                     )
                                 })}
                                 

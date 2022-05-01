@@ -21,15 +21,15 @@ import AddProduct from '../pages/Admin/AddProduct';
 import AddCategory from '../pages/Admin/AddCategory';
 
 if (localStorage.token) {
-    setAuthToken(localStorage.token);
-  }
+  setAuthToken(localStorage.token);
+}
 
 const Render = () => {
 
     let navigate = useNavigate();
 
     const [context, dispatch] = useContext(UserContext);
-    console.clear();
+    // console.clear();
     console.log(context);
     useEffect(() => {
       if (localStorage.token) {
@@ -88,20 +88,20 @@ const Render = () => {
         <Route path='/register'  element={<Register/>}/>
         <Route path='/*' element={<FileNotFound/>}/>
         <Route path='/'  element={<PrivateRoute/>}>
-        <Route path='/category' element={<Category/>}/>
-        <Route path='/add-category' element={<AddCategory/>}/>
-        <Route path='/complain-user' element={<ComplainUser/>}/>
-        <Route path='/complain-admin'element={<ComplainAdmin />}/>
-        <Route path='/list-product' element={<ListProduct/>}/>
-        <Route path='/add-product' element={<AddProduct/>}/>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/profil' element={<Profil/>}/>
-        <Route path='/edit-category' element={<EditCategory/>}/>
-        <Route path='/edit-product' element={<EditProduct/>}/>
-        <Route path='/detail-Page/:id' element={<DetailPage/>}/>
-        <Route path='/delete' element={<AlertDelete/>}/>
-        
+          <Route path='/category' element={<Category/>}/>
+          <Route path='/add-category' element={<AddCategory/>}/>
+          <Route path='/complain-user' element={<ComplainUser/>}/>
+          <Route path='/complain-admin'element={<ComplainAdmin />}/>
+          <Route path='/list-product' element={<ListProduct/>}/>
+          <Route path='/add-product' element={<AddProduct/>}/>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/profil' element={<Profil/>}/>
+          <Route path='/edit-category/:id' element={<EditCategory/>}/>
+          <Route path='/edit-product/:id' element={<EditProduct/>}/>
+          <Route path='/detail-Page/:id' element={<DetailPage/>}/>
+          <Route path='/delete' element={<AlertDelete/>}/>
         </Route>
+
     </Routes>
       
  )

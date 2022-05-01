@@ -71,7 +71,7 @@ const Login = () => {
           } 
         } catch (error) {
           const alert = (
-            <Alert variant="danger" className="py-1">
+            <Alert variant="danger" className="py-1 alertfailed">
               Login failed
             </Alert>
           );
@@ -114,11 +114,15 @@ const Login = () => {
 
                   {/* bagian kanan login */}
                 <div className="col-md-6">
+                   
                     <div className="row row-cols-1 row-cols-md-2 justify-content-center mt-5">
-                         <div className="col mb-4 ">
+                       
+                         <div className="col mb-4 ">  
+                         {message && message}
                              <div className="card bor" style={{background: "#181818", width: "416px", height: "366px"}}>
                                 <div className="card-body" style={{background: "#181818", width: "350px", margin: "20px auto"}}>
                                   <h2 style={{background: "#181818"}} className="text-white mb-5">Login</h2>
+                                 
                                    <form onSubmit={(event)=> HandleOnsubmit.mutate(event)}>
                                      <div style={{background: "#181818"}} className="form-group">
                       

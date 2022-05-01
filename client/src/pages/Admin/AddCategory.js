@@ -50,7 +50,7 @@ const AddCategory = () => {
                 </div>
 
                 <div className="m-5">
-                    <input style={{backgroundColor: "#BCBCBC"}} type="text" className="form-control" aria-describedby="emailHelp"  placeholder="mouse" name="category" value={state} onChange={HandleOnChange}/>
+                    <input type="text" className="form-control input-category-product" aria-describedby="emailHelp"  placeholder="mouse" name="category" value={state} onChange={HandleOnChange}/>
                 </div>
                 <div className="m-5">
                     <button type="submit" className="buttonSave">save</button>

@@ -4,16 +4,16 @@ import './style.css';
 
 
 
-const AlertDelete = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
+ function AlertDelete({ show, handleClose, setConfirmDelete }) {
+
+  const handleDelete = () => {
+      setConfirmDelete(true)
+  }
  
     return (
 <>
-        <button className='buttonDelete' onClick={handleShow}>
-        Delete </button>
+        {/* <button className='buttonDelete' onClick={handleShow}>
+        Delete </button> */}
 
         <Modal variant="dark" size='md' aria-labelledby="contained-modal-title-vcenter" centered show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -21,10 +21,10 @@ const AlertDelete = () => {
         </Modal.Header>
         <Modal.Body>Are You Sure Want To Delete This Data?</Modal.Body>
         <Modal.Footer>
-          <Button className='buttonEdit' onClick={handleClose}>
+          <Button className="buttonEdit" onClick={handleDelete}>
             Yes
           </Button>
-          <Button className='buttonDelete' onClick={handleClose}>
+          <Button className="buttonDelete" onClick={handleClose}>
             No
           </Button>
         </Modal.Footer>

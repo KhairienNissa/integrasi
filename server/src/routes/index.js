@@ -9,7 +9,7 @@ const { addUsers, getUsers, getUser, updateUser, deleteUser } = require('../cont
 const { getProduct, getProducts, addProduct, updateProduct, deleteProduct } = require('../controllers/product')
 const { getTransactions, addTransaction } = require('../controllers/transaction');
 const { getCategories, getCategory, addCategory, updateCategory, deleteCategory } = require("../controllers/category");
-const { getBridge, getBridges, addBridge, updateBridge, deleteBridge } = require("../controllers/categoryproduct");
+// const { getBridge, getBridges, addBridge, updateBridge, deleteBridge } = require("../controllers/categoryproduct");
 const { register, login, checkAuth} = require("../controllers/auth");
 const { auth } = require('../middlewares/auth')
 const { uploadFile } = require('../middlewares/uploadFile');
@@ -26,7 +26,7 @@ router.delete('/user/:id', auth, deleteUser)
 //product
 router.get('/products', auth, getProducts)
 router.get('/product/:id', getProduct)
-router.post('/product', auth, uploadFile("image"), addProduct)
+router.post('/product',auth, uploadFile("image"), addProduct)
 router.patch('/product/:id', auth, uploadFile("image"), updateProduct)
 router.delete('/product/:id', auth, deleteProduct)
 //transaction
@@ -39,11 +39,11 @@ router.post('/category', auth, addCategory)
 router.patch('/category/:id', auth, updateCategory)
 router.delete('/category/:id', auth, deleteCategory)
 //categoryProduct
-router.get('/categories-products', auth, getBridges)
-router.get('/category-product/:id', auth, getBridge)
-router.post('/category-product', auth, addBridge)
-router.patch('/category-product/:id',auth,  updateBridge)
-router.delete('/category-product/:id', auth, deleteBridge)
+// router.get('/categories-products', auth, getBridges)
+// router.get('/category-product/:id', auth, getBridge)
+// router.post('/category-product', auth, addBridge)
+// router.patch('/category-product/:id',auth,  updateBridge)
+// router.delete('/category-product/:id', auth, deleteBridge)
 
 router.post('/register', register)
 router.post('/login', login)

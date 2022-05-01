@@ -16,8 +16,8 @@ root.render(
     <UserContextProvider>
     <QueryClientProvider client={client}>
       <Router>
-    <App />
-    </Router>
+        <App />
+      </Router>
     </QueryClientProvider>
     </UserContextProvider>
   </React.StrictMode>

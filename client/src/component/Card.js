@@ -8,16 +8,16 @@ const CardProduct = ({item}) => {
    
  
     return (
-                 <div className="col-md-2 me-2"> 
-                    <NavLink className="nav-link text-black" to={`/detail-page/${item.id}`}
+                 <div className="col-md-2" style={{marginRight:"-10px"}}> 
+                    <NavLink className="nav-link text-black" to={`/detail-page/`+ item.id}
                   exact >
-                    <Card style={{ width: '200px', height: '340px', backgroundColor: "black" , color: "white", border: "2px solid white"}}>
-                <Card.Img variant="top" src={item.image} style={{height: '230px' }}/>
-                <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Text>
+                    <Card style={{ width: '200px', height: '250px', backgroundColor: "black" , color: "white", border: "2px solid white"}}>
+                <Card.Img variant="top" src={item.image} style={{height: '150px' }}/>
+                <Card.Body className='pt-0'>
+                <Card.Title style={{fontSize:"20px", fontWeight:"bolder"}}>{item.name}</Card.Title>
+                <Card.Text style={{fontSize:"15px", color:"red"}}>
                     {item.price}
-               <p>stok : {item.qty}</p> 
+               <p style={{fontSize:"12px", marginTop:"10px", color:"white"}}>stok : {item.qty}</p> 
                 </Card.Text>
                 </Card.Body>
                 </Card></NavLink>  

@@ -40,7 +40,7 @@ const Category = () => {
                             <tbody> 
                             
                                 {categories?.map((item, index) => {
-                                return <TableCategory item={item} key={index}/>
+                                return <TableCategory item={item} key={index} number={index+1}/>
 
                                   })} 
          

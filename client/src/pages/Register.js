@@ -43,11 +43,13 @@ const Register = () => {
 
       console.log(response);
 
-      if(response.data.status === "success..."){
+      if(response.data.status === "success...")
+      { navigate('/login')
         const alert = (
           <Alert variant="success" className="py-1">
             Register Success
-          </Alert>
+          </Alert> 
+          
         );
         setMessage(alert)
         setState({
@@ -55,9 +57,10 @@ const Register = () => {
           email: '',
           password: '',
         })
+        
       }else{
         const alert = (
-          <Alert variant="danger" className="py-1">
+          <Alert variant="danger" className="py-1 alertfailed">
             Failed
           </Alert>
         );
@@ -66,10 +69,11 @@ const Register = () => {
       // Handling response here
     } catch (error) {
       const alert = (
-        <Alert variant="danger" className="py-1">
+        <Alert variant="danger" className="py-1 alertfailed">
           Failed
         </Alert>
       );
+     
       setMessage(alert);
       console.log(error);
     }
@@ -95,7 +99,7 @@ const Register = () => {
                    </div>
                      <div className="row mt-4">
                         <div className="col-3">
-                             <button className='buttonMerah'>login</button>
+                             <button onClick={()=> navigate('/login')} className='buttonMerah'>login</button>
                         </div>
                         <div className="col-3 ">
                              <a className="nav-link text-white" href="#home">Register</a>
@@ -107,11 +111,14 @@ const Register = () => {
 
                   {/* bagian kanan login */}
                 <div className="col-md-5">
+                 
                     <div className="row row-cols-1 row-cols-md-2 justify-content-center mt-4">
-                         <div className="col mb-4 ">
+                         <div className="col mb-4 "> 
+                         {message && message}
                              <div className="card bor" style={{background: "#181818", width: "416px", height: "443px"}}>
                                 <div className="card-body" style={{background: "#181818", width: "350px", margin: "20px auto"}}>
                                   <h2 style={{background: "#181818"}} className="text-white mb-5">Register</h2>
+                                  
                                  <form onSubmit={(event)=> HandleOnsubmit.mutate(event)}>
                                      <div style={{background: "#181818"}} className="form-group">
                                          <div className="row mb-4">
