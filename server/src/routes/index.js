@@ -13,7 +13,7 @@ const { getCategories, getCategory, addCategory, updateCategory, deleteCategory 
 const { register, login, checkAuth} = require("../controllers/auth");
 const { auth } = require('../middlewares/auth')
 const { uploadFile } = require('../middlewares/uploadFile');
-const { getProfils, getProfil, addProfil, updateProfil, deleteProfil } = require("../controllers/profil");
+const { getProfils } = require("../controllers/profil");
 
 // Route
 
@@ -50,10 +50,10 @@ router.post('/login', login)
 router.get("/check-auth", auth, checkAuth);
 
 router.get('/profiles', auth, getProfils)
-router.get('/profile:id', auth, getProfil)
-router.post('/profile', auth, addProfil)
-router.patch('/profile/:id', auth, updateProfil)
-router.delete('/profile/:id', auth, deleteProfil)
+// router.get('/profile:id', auth, getProfil)
+// router.post('/profile', auth, addProfil)
+// router.patch('/profile/:id', auth, updateProfil)
+// router.delete('/profile/:id', auth, deleteProfil)
 
 
 module.exports = router

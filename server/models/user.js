@@ -39,6 +39,18 @@ module.exports = (sequelize, DataTypes) => {
           name: "idSeller",
         },
       });
+      user.hasMany(models.chat, {
+        as: "senderMessage",
+        foreignKey: {
+          name: "idSender",
+        },
+      });
+      user.hasMany(models.chat, {
+        as: "recipientMessage",
+        foreignKey: {
+          name: "idRecipient",
+        },
+      });
     }
   }
   user.init({
