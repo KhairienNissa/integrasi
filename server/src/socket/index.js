@@ -107,7 +107,7 @@ const socketIo = (io) => {
       try {
         const token = socket.handshake.auth.token
 
-        const tokenKey = process.env.TOKEN_KEY
+        const tokenKey = process.env.SECRET_KEY
         const verified = jwt.verify(token, tokenKey)
 
         const idRecipient = payload // catch recipient id sent from client
@@ -155,7 +155,7 @@ const socketIo = (io) => {
       try {
         const token = socket.handshake.auth.token
 
-        const tokenKey = process.env.TOKEN_KEY
+        const tokenKey = process.env.SECRET_KEY
         const verified = jwt.verify(token, tokenKey)
 
         const idSender = verified.id //id user

@@ -5,7 +5,7 @@ import Navbar from '../../component/Navbar';
 import { Container, Row, Col } from 'react-bootstrap'
 import Contact from '../../component/complain/Contact'
 import Chat from '../../component/complain/Chat'
-import dataContact from '../../DataDummy/contact'
+// import dataContact from '../../DataDummy/contact'
 import { UserContext } from '../../context/userContext'
 import {io} from 'socket.io-client'
 
@@ -64,7 +64,6 @@ const ComplainByAdmin = () => {
             // code here
             dataContacts = dataContacts.map((item)=>({
                 ...item,
-                // message: item.senderMessage.length > 0 ? item.senderMessagge[item.senderMessage.length -1].message : "Click here to start message" 
             }))
             setContacts(dataContacts)
         })

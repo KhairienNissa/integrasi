@@ -11,7 +11,7 @@ import {io} from 'socket.io-client'
 import { UserContext } from '../../context/userContext'
 
 let socket
-const Complain = () => {
+export default function Complain() {
     const [contact, setContact] = useState(null)
     const [contacts, setContacts] = useState([])
     // code here
@@ -112,7 +112,7 @@ const Complain = () => {
 
     return (
         <>
-            <NavbarUser/>
+            <NavbarUser title={title} />
             <Container fluid style={{height: '89.5vh'}}>
                 <Row>
                     <Col md={3} style={{height: '89.5vh'}} className="px-3 border-end border-dark overflow-auto">
@@ -127,7 +127,3 @@ const Complain = () => {
         </>
     )
 }
-
-
-export default Complain;
-
