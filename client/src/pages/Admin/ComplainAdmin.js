@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react'
-import '../../component/style.css';
-import Navbar from '../../component/Navbar';
-
+import React, { useState,  useEffect, useContext } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import '../../component/style.css';
+import Navbar from '../../component/Navbar'
+import '../../component/style.css'
+// import Adminlogo from '../../Assets/images/5147268.jpg'
+// import { Table } from 'react-bootstrap';
 import Contact from '../../component/complain/Contact'
 import Chat from '../../component/complain/Chat'
-// import dataContact from '../../DataDummy/contact'
-import { UserContext } from '../../context/userContext'
 import {io} from 'socket.io-client'
-
-// import { Table } from 'react-bootstrap';
-import caca from '../../Assets/images/caca1.JPG'
+import { UserContext } from '../../context/userContext'
 
 let socket
 const ComplainByAdmin = () => {
@@ -112,12 +110,12 @@ const ComplainByAdmin = () => {
             <Container fluid style={{height: '89.5vh'}}>
                 <Row>
                     <Col md={3} style={{height: '89.5vh'}} className="px-3 border-end border-dark overflow-auto">
-                        <Contact dataContact={contacts} clickContact={onClickContact} contact={contact}/>
+                        <Contact dataContact={contacts}  clickContact={onClickContact} contact={contact} />
                     </Col>
                     {/* code here */}
-                    <Col md={9}>
+                    <Col  md={9} style={{maxHeight: '89.5vh'}} className="px-0">
+                     {/* <Chat contact={contact} messages={messages} user={context.user} sendMessage={onSendMessage}/> */}
                         <Chat contact={contact} messages={messages} user={context.user} sendMessage={onSendMessage}/>
-                    
                     </Col>
                 </Row>
             </Container>

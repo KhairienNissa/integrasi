@@ -1,27 +1,49 @@
 import React, { useContext, useState, useEffect } from 'react';
 import '../../component/style.css';
+import convertRupiah from "rupiah-format";
 // import dateFormat from 'dateformat';
 import NavbarUser from '../../component/NavbarUser';
-import caca from '../../Assets/images/caca.jpg'
 import frame from '../../Assets/images/Frame.png'
-import mouse from '../../Assets/images/mouse.png'
 import imgBlack from '../../Assets/images/Capture.JPG'
 import { UserContext } from '../../context/userContext';
 import { API } from '../../Config/api'
 import { useQuery } from 'react-query';
 
 const Profil = () => {
+    const title = "Profile";
+    document.title = "DumbMerch | " + title;
+
     const [context] = useContext(UserContext);
 
-    let { data: profil } = useQuery('profilCache', async () => {
-        const response = await API.get('/profil');
+    let api = API();
+
+    let { data: profil, refetch: profileRefetch  } = useQuery('profilCache',
+    
+    async () => {
+        const config = {
+            method: "GET",
+            headers: {
+              Authorization: "Basic " + localStorage.token,
+            },
+          };
+
+        const response = await API.get('/profile');
         return response.data.data;
       });
 
-      let { data: transactions } = useQuery('transactionsCache', async () => {
-        const response = await API.get('/transactions');
-        return response.data.data;
-      });
+      let { data: transactions, refetch: transactionsRefetch } = useQuery(
+        "transactionsCache",
+        async () => {
+          const config = {
+            method: "GET",
+            headers: {
+              Authorization: "Basic " + localStorage.token,
+            },
+          };
+          const response = await api.get("/transactions", config);
+          return response.data;
+        }
+      );
 
     return (
         <div>
@@ -79,25 +101,26 @@ const Profil = () => {
                                 <div  key={index} className="kotak mb-3">
                                     <div  className="row">
                                     <div  className="col-3 mt-3">
-                                    <img src={item.product.image} width= "70px"/>
+                                    <img src={`http://localhost:5000/uploads/${item.product.image}`} width= "70px"/>
                                     </div>
                                     <div style={{fontSize: "9px"}} className="col mt-1 text-white">
                                         <div className="row">
                                             <h5 className="text-danger">{item.product.name}</h5>
-                                            <p>
-                                                {/* {dateFormat(item.createdAt, 'dddd, d mmmm yyyy')} */}
-                                                </p>
-                                            <p>Price : Rp.{item.price}</p>
+                                            <p>Price : {convertRupiah.convert(item.price)}</p>
 
                                         </div>
                                         <div className="row">
-                                        <p>Sub Total : Rp.{item.price}</p>
+                                        <p>Sub Total : {convertRupiah.convert(item.price)}</p>
                                         </div>
                                     
 
                                     </div>
                                     <div  className="col-3 mt-4 ms-5">
-                                         <img src={frame} width="70"/>
+                                    <div
+                                        className={`status-transaction-${item.status} rounded h-100 d-flex align-items-center justify-content-center`}
+                                    >
+                                        {item.status}
+                                    </div>
                                     </div>
                                     </div>
                                  </div>

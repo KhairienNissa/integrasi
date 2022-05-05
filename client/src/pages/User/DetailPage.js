@@ -1,29 +1,54 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../../component/style.css';
 import NavbarUser from '../../component/NavbarUser';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Detail } from '../../DataDummy/DetailProduct';
 import { useQuery, useMutation } from 'react-query';
-// import convertRupiah from 'rupiah-format';
+import convertRupiah from 'rupiah-format';
 import { API } from '../../Config/api';
 
 const DetailPage = () => {
     const navigate = useNavigate()
     const { id } = useParams();
 
-    let { data: product } = useQuery('productCache', async () => {
+    let { data: product, refetch } = useQuery('productCache', async () => {
+       const config = {
+      method: "GET",
+      headers: {
+        Authorization: "Basic " + localStorage.token,
+      },
+    };
         const response = await API.get('/product/' + id);
         return response.data.data;
       });
-    
-  const handleBuy = useMutation(async (e) => {
-    try {
-      e.preventDefault();
 
+      useEffect(() => {
+        //change this to the script source you want to load, for example this is snap.js sandbox env
+         const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
+        //change this according to your client-key
+        const myMidtransClientKey = "SB-Mid-client-YFY4KOLjGFVPvIVW";
+    
+        let scriptTag = document.createElement("script");
+        scriptTag.src = midtransScriptUrl;
+        // optional if you want to set script attribute
+        // for example snap.js have data-client-key attribute
+        scriptTag.setAttribute("data-client-key", myMidtransClientKey);
+    
+        document.body.appendChild(scriptTag);
+        return () => {
+          document.body.removeChild(scriptTag);
+        };
+      }, []);
+    
+  const handleBuy = useMutation(async () => {
+    try {
+  
       const config = {
+        method: "POST",
         headers: {
           'Content-type': 'application/json',
         },
+        body,
       };
 
       const data = {
@@ -34,9 +59,30 @@ const DetailPage = () => {
 
       const body = JSON.stringify(data);
 
-      await API.post('/transaction', body, config);
+      const response = await API.post('/transaction', config);
+      console.log(response);
+      const token = response.payment.token;
 
-      navigate('/profil');
+      window.snap.pay(token, {
+        onSuccess: function (result) {
+          /* You may add your own implementation here */
+          console.log(result);
+          navigate("/profil");
+        },
+        onPending: function (result) {
+          /* You may add your own implementation here */
+          console.log(result);
+          navigate("/profil");
+        },
+        onError: function (result) {
+          /* You may add your own implementation here */
+          console.log(result);
+        },
+        onClose: function () {
+          /* You may add your own implementation here */
+          alert("you closed the popup without finishing the payment");
+        },
+      });
     } catch (error) {
       console.log(error);
     }
@@ -76,7 +122,7 @@ const DetailPage = () => {
                                  <p> {product?.price}</p>
                         </div>
                         <div className="row mt-3" >
-                            <button className="buttonBuy" onClick={(e) => handleBuy.mutate(e)}>Buy</button>
+                            <button className="buttonBuy" onClick={() => handleBuy.mutate()}>Buy</button>
                         </div>
 
                         </div>
