@@ -52,6 +52,7 @@ const Register = () => {
           
         );
         setMessage(alert)
+        
         setState({
           name: '',
           email: '',
@@ -89,7 +90,7 @@ const Register = () => {
                   {/* bagian kiri */}
 
                  <div className="col-md-6">
-                      <img src={frame} width="264" height="264"/>
+                      <img src={frame} width="300" height="300"/>
                    <div className="row text-white mt-3">
                      <h1> Easy, Fast and Reliable</h1>
                    </div>

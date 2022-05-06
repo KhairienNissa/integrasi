@@ -3,8 +3,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 import '../../component/style.css';
 import Navbar from '../../component/Navbar'
 import '../../component/style.css'
-// import Adminlogo from '../../Assets/images/5147268.jpg'
-// import { Table } from 'react-bootstrap';
 import Contact from '../../component/complain/Contact'
 import Chat from '../../component/complain/Chat'
 import {io} from 'socket.io-client'
@@ -108,7 +106,7 @@ const ComplainByAdmin = () => {
         <>
             <Navbar/>
             <Container fluid style={{height: '89.5vh'}}>
-                <Row>
+                <Row className='mx-4'>
                     <Col md={3} style={{height: '89.5vh'}} className="px-3 border-end border-dark overflow-auto">
                         <Contact dataContact={contacts}  clickContact={onClickContact} contact={contact} />
                     </Col>

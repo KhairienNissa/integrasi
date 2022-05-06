@@ -27,7 +27,7 @@ const Profil = () => {
             },
           };
 
-        const response = await API.get('/profile');
+        const response = await API.get('/profile', config);
         return response.data.data;
       });
 

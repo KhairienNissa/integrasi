@@ -58,8 +58,8 @@ const TableProd = ({item, number}) => {
         <td><img src= {item.image} width={"50px"}/></td>
         <td>{item.name}</td>
         <td>{item.desc.slice(0, 20) + '..'} </td>
-        <td>{item.qty}</td>
         <td>{convertRupiah.convert(item.price)}</td>
+        <td>{item.qty}</td>
         <td>
             <div className="row">
             <div className="col"><button className='buttonEdit' onClick={()=> navigate(`/edit-product/${item.id}`)}>

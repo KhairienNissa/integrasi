@@ -1,10 +1,7 @@
 import React, {useState} from 'react';
 import '../component/style.css';
 import NavbarUser from '../component/NavbarUser';
-// import Navbar from '../component/Navbar';
-// import { Card, ListGroup,ListGroupItem} from 'react-bootstrap';
-// import { NavLink } from 'react-router-dom';
-// import { data } from '../DataDummy/DataProduct';
+
 import CardProduct from '../component/Card';
 import { Detail } from '../DataDummy/DetailProduct';
 import { useQuery } from 'react-query';
@@ -18,15 +15,17 @@ const ProductShop = () => {
     const title = "Home";
     document.title = "DumbMerch | " + title;
     
-    let { data: products } = useQuery('productsCache', async () => {
+    let { data : products } = useQuery('productsCache', async () => {
     const response = await API.get('/products');
     return response.data.data;
+    
   });
-
+  
+        // products = products.filter(item => item.name.toLowerCase().includes(search))
 
     return ( 
             <div>
-     <NavbarUser/>
+     <NavbarUser search={search} setSearch={setSearch}/>
         <div className="container-fluid">
                 <div className="row mt-5 ms-5 text-danger">
                     <h2 className="fw-bold" style={{marginLeft:"-10px"}}>Product</h2>

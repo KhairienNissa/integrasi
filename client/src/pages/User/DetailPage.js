@@ -22,7 +22,7 @@ const DetailPage = () => {
         Authorization: "Basic " + localStorage.token,
       },
     };
-        const response = await API.get('/product/' + id);
+        const response = await API.get('/product/' + id, config);
         return response.data.data;
       });
 
@@ -46,22 +46,24 @@ const DetailPage = () => {
     
   const handleBuy = useMutation(async () => {
     try {
-  
-      const config = {
-        method: "POST",
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body,
-      };
 
-      const data = {
+    const data = {
         idProduct: product.id,
         idSeller: product.user.id,
         price: product.price,
       };
-
-      const body = JSON.stringify(data);
+    
+    const body = JSON.stringify(data);
+    
+    const config = {
+        method: "POST",
+        headers: {
+          Authorization: "Basic " + localStorage.token,
+          'Content-type': 'application/json',
+        },
+        body,
+      };
+      
 
       const response = await API.post('/transaction', config);
       console.log(response);
