@@ -5,6 +5,7 @@ import AlertDelete from './alert';
 import { API } from '../Config/api';
 import { useQuery, useMutation } from 'react-query';
 // import { Table } from 'react-bootstrap';
+import convertRupiah from 'rupiah-format';
 
 const TableProd = ({item, number}) => {
     const navigate = useNavigate()
@@ -58,7 +59,7 @@ const TableProd = ({item, number}) => {
         <td>{item.name}</td>
         <td>{item.desc.slice(0, 20) + '..'} </td>
         <td>{item.qty}</td>
-        <td>{item.price}</td>
+        <td>{convertRupiah.convert(item.price)}</td>
         <td>
             <div className="row">
             <div className="col"><button className='buttonEdit' onClick={()=> navigate(`/edit-product/${item.id}`)}>

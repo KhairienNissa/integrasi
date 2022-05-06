@@ -83,7 +83,7 @@ const Register = () => {
  
     return (
         <div>
-            <div className="container"  style={{margin : "80px 100px"}}>
+            <div className="container"  style={{margin : "80px 130px"}}>
               <div className="row mt-5">
                    
                   {/* bagian kiri */}
@@ -98,10 +98,10 @@ const Register = () => {
                      <p>Go shopping for merchandise, just go to dumb merch shopping. the biggest merchandise in Indonesia</p>
                    </div>
                      <div className="row mt-4">
-                        <div className="col-3">
+                        <div className="col-md-3">
                              <button onClick={()=> navigate('/login')} className='buttonMerah'>login</button>
                         </div>
-                        <div className="col-3 ">
+                        <div className="col-md-3 ">
                              <a className="nav-link text-white" href="#home">Register</a>
                         </div>
                      </div>
@@ -110,7 +110,7 @@ const Register = () => {
                   {/* penutup */}
 
                   {/* bagian kanan login */}
-                <div className="col-md-5">
+                <div className="col-md-6">
                  
                     <div className="row row-cols-1 row-cols-md-2 justify-content-center mt-4">
                          <div className="col mb-4 "> 

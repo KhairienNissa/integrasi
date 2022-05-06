@@ -6,7 +6,8 @@ import { useMutation } from 'react-query';
 import { API } from '../../Config/api';
 
 const AddProduct = () => {
-
+  const title = "Add Product";
+  document.title = "DumbMerch | " + title;
   const navigate = useNavigate()
   const [categories, setCategories] = useState([]); //Store all category data
   const [categoryId, setCategoryId] = useState([]); //Save the selected category id
@@ -105,7 +106,7 @@ const AddProduct = () => {
 
           <div className="row">
             <div className="col-1 mx-5">
-              <button className="buttonMerah"> <input type="file" id="upload" name="image" onChange={HandleOnChange} hidden /> <label for="upload">upload image</label> </button>
+              <button className="buttonMerah"> <input type="file" id="upload" name="image" onChange={HandleOnChange} hidden /> <label for="upload" className='text-center mt-1 mb-1'>upload image</label> </button>
             </div>
             <div className="col ms-5 text-white">
               {preview && (

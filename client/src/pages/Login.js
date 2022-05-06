@@ -82,8 +82,8 @@ const Login = () => {
     
       return (
         <div>
-            <div className="container" style={{margin : "80px 100px"}}>
-              <div className="row mt-5">
+            <div className="container" style={{margin : "80px 130px"}}>
+              <div className="row mt-5 justify-content-center">
                   {/* bagian kiri */}
 
                  <div className="col-md-6">

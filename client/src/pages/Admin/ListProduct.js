@@ -8,7 +8,10 @@ import { useQuery, useMutation } from 'react-query';
 import { API } from '../../Config/api';
 
 
+
 const Product = (Props) => {
+    const title = "List Product";
+    document.title = "DumbMerch | " + title;
     const navigate = useNavigate();
 
     let { data: products } = useQuery('productsCache', async () => {

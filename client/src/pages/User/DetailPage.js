@@ -8,6 +8,10 @@ import convertRupiah from 'rupiah-format';
 import { API } from '../../Config/api';
 
 const DetailPage = () => {
+
+  const title = "Detail Product";
+  document.title = "DumbMerch | " + title;
+
     const navigate = useNavigate()
     const { id } = useParams();
 
@@ -98,28 +102,21 @@ const DetailPage = () => {
             <div>
                 <div className="container-fluid mt-4">
 
-                    <div className="row justify-content-center">
-                        <div className="col-md-4">
-                        <img src={product?.image} style={{width: "370px",height: "470px", borderRadius: "5px"}} />
+                    <div className="row justify-content-center mt-5">
+                        <div className="col-md-3">
+                        <img src={product?.image} style={{width: "300px",height: "350px", borderRadius: "5px"}} />
                         </div>
-                        <div className="col-md-4" style={{fontSize: "12px"}}>
+                        <div className="col-md-3" style={{fontSize: "12px"}}>
                         <div className="row" style={{fontSize: "12px"}}>
                                 <h4 style={{color: "#F74D4D", fontWeight: "bold"}}>{product?.name}</h4>
                                 <p style={{color: " #afafaf", fontSize: "11px"}}> stok: {product?.qty}</p>
                         </div>
-                        {/* <div className="row mt-2 text-white">
-                               
-                                <p> - {Detail[index].spek1} </p>
-                                <p> - {Detail[index].spek2}</p>
-                                <p> - {Detail[index].spek3 }</p> 
-                                <p> - {Detail[index].spek4}</p>  
-                                <p> - {Detail[index].spek5}</p>
-                        </div> */}
+                        
                         <div className="row mt-2 text-white" style={{textAlign: "justify"}}>
                                  <p> {product?.desc}</p>
                         </div>
                         <div className="d-flex flex-row-reverse bd-highlight text-danger">
-                                 <p> {product?.price}</p>
+                                 <p>  {convertRupiah.convert(product?.price)}</p>
                         </div>
                         <div className="row mt-3" >
                             <button className="buttonBuy" onClick={() => handleBuy.mutate()}>Buy</button>

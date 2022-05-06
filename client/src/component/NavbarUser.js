@@ -55,7 +55,7 @@ return (
                     final_url === "/profil" ? "nav-link hello text-danger fw-bold" :"nav-link hello text-white "}
                   to="/profil"
                   exact >
-                  Profil
+                  Profile
                   </NavLink>
             </li>
             <li   aria-current="page" className="nav-link  hello text-white"

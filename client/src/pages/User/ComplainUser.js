@@ -24,6 +24,10 @@ export default function Complain() {
     // code here
     const [context, dispatch] = useContext(UserContext)
     useEffect(() =>{
+
+        const title = "Complain by User";
+        document.title = "DumbMerch | " + title;
+        
         socket = io('http://localhost:5000', {
             auth: {
                 token: localStorage.getItem("token")

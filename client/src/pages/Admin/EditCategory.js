@@ -6,7 +6,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation } from 'react-query';
 
 const EditCategory = () => {
-   
+  const title = "Edit Category";
+  document.title = "DumbMerch | " + title;
   let navigate = useNavigate();
   const { id } = useParams();
   const [category, setCategory] = useState({ name: '' });

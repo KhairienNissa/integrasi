@@ -7,6 +7,9 @@ import { API } from '../../Config/api';
 
 const AddCategory = () => {
 
+  const title = "Add Category";
+  document.title = "DumbMerch | " + title;
+
     const navigate = useNavigate()
     const [state, setState] = useState('')
     

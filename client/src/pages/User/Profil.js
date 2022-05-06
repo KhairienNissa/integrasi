@@ -57,12 +57,12 @@ const Profil = () => {
                     
 
                     <div className="row justify-content-center mt-4">
-                       <div className="col-md-6">
+                       <div className="col-md-5">
                            <h3 className="text-danger fw-bolder">My Profil</h3>
-                           <div className="row mt-2">
+                           <div className="row mt-3">
                                 <div className="col">
-                                    <div className="col-md-4" >
-                                     <img variant="top" src={profil?.image ? profil.image : imgBlack} style={{width: "300px",height: "400px"}} />
+                                    <div className="col-md-3" >
+                                     <img variant="top" src={profil?.image ? profil.image : imgBlack} style={{width: "330px",height: "400px"}} />
                                      </div>
                                 </div>      
                                 <div className="col-md text-white" style={{fontSize: "14px"}}>

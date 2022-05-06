@@ -12,14 +12,14 @@ import { UserContext } from '../../context/userContext'
 
 let socket
 const ComplainByAdmin = () => {
+
+    const title = "Complain";
+    document.title = "DumbMerch | " + title;
+
   const [contact, setContact] = useState(null)
     const [contacts, setContacts] = useState([])
     // code here
     const [messages, setMessages] = useState([])
-
-
-    const title = "Complain admin"
-    document.title = 'DumbMerch | ' + title
 
     // code here
     const [context, dispatch] = useContext(UserContext)

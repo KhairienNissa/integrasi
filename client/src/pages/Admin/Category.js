@@ -9,6 +9,8 @@ import { useQuery } from 'react-query';
 // import { Table } from 'react-bootstrap';
 
 const Category = () => {
+    const title = "List Category";
+    document.title = "DumbMerch | " + title;
     const navigate = useNavigate()
 
     let { data: categories } = useQuery('categoriesCache', async () => {
