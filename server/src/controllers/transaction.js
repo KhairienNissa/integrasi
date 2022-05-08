@@ -87,6 +87,7 @@ exports.addTransaction = async (req, res) => {
 
     // Insert data to transaction table
     const newData = await transaction.create(data);
+    console.log(newData);
 
     const buyerData = await user.findOne({
       include: {
@@ -108,7 +109,7 @@ exports.addTransaction = async (req, res) => {
     let snap = new midtransClient.Snap({
       // Set to true if you want Production Environment (accept real transaction).
       isProduction: false,
-      serverKey: process.env.MIDTRANS_SERVER_KEY,
+      serverKey: 'SB-Mid-server-ePJwiQOTcrCLa8fVEKORacrR',
     });
 
     let parameter = {
@@ -127,6 +128,7 @@ exports.addTransaction = async (req, res) => {
     };
 
     const payment = await snap.createTransaction(parameter);
+    console.log(payment);
 
     res.send({
       status: "pending",
@@ -145,8 +147,8 @@ exports.addTransaction = async (req, res) => {
   }
 };
 
-const MIDTRANS_CLIENT_KEY = process.env.MIDTRANS_CLIENT_KEY;
-const MIDTRANS_SERVER_KEY = process.env.MIDTRANS_SERVER_KEY;
+const MIDTRANS_CLIENT_KEY = 'SB-Mid-client-yMIcmA1HzPvyaRsh';
+const MIDTRANS_SERVER_KEY = 'SB-Mid-server-ePJwiQOTcrCLa8fVEKORacrR';
 
 const core = new midtransClient.CoreApi();
 
@@ -166,6 +168,7 @@ core.apiConfig.set({
 exports.notification = async (req, res) => {
   try {
     const statusResponse = await core.transaction.notification(req.body);
+    console.log(statusResponse);
     const orderId = statusResponse.order_id; // id transaksi
     const transactionStatus = statusResponse.transaction_status; //status transaski database
     const fraudStatus = statusResponse.fraud_status;//status transaksi miidtrans
@@ -338,5 +341,3 @@ const sendEmail = async (status, transactionId) => {
     });
   }
 };
-
-

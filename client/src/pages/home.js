@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../component/style.css';
 import NavbarUser from '../component/NavbarUser';
 
@@ -7,8 +7,7 @@ import { Detail } from '../DataDummy/DetailProduct';
 import { useQuery } from 'react-query';
 import { API } from '../Config/api';
 import convertRupiah from 'rupiah-format';
-
-  
+// import SearchBar from 'react-bootstrap'
 
 const ProductShop = () => {
     const [search, setSearch] = useState('')
@@ -20,11 +19,15 @@ const ProductShop = () => {
     return response.data.data;
     
   });
-  
-        // products = products.filter(item => item.name.toLowerCase().includes(search))
+
+    //  products = products.filter(item => item.name.toLowerCase().includes(search))
+        // let dataSearch = products.product.filter((value) => {
+        //     return value.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+        // })
 
     return ( 
             <div>
+               
      <NavbarUser search={search} setSearch={setSearch}/>
         <div className="container-fluid">
                 <div className="row mt-5 ms-5 text-danger">

@@ -139,7 +139,7 @@ const EditProduct = () => {
 
                 <div className="row">
                     <div className="col-1 mx-5">
-                        <div className="buttonMerah text-center"> <input type="file" id="upload" name="image" onChange={HandleOnChange} hidden />   <label for="upload" className="label-file-add-product text-center mt-2">
+                        <div className="buttonMerah text-center"> <input type="file" id="upload" name="image" onChange={HandleOnChange} hidden />   <label htmlFor="upload" className="label-file-add-product text-center mt-2">
                 Upload file
               </label></div>
                     </div>

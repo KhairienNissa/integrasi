@@ -15,35 +15,36 @@ const Profil = () => {
 
     const [context] = useContext(UserContext);
 
-    let api = API();
+    const [profil,setProfil]=useState('')
+    const [transactions,setTransactions]=useState('')
 
-    let { data: profil, refetch: profileRefetch  } = useQuery('profilCache',
-    
-    async () => {
-        const config = {
-            method: "GET",
-            headers: {
-              Authorization: "Basic " + localStorage.token,
-            },
-          };
+    const getProfile = async() => {
+        try {
+         
+            const response = await API.get("/profile");
+            setProfil(response.data.data)
 
-        const response = await API.get('/profile', config);
-        return response.data.data;
-      });
-
-      let { data: transactions, refetch: transactionsRefetch } = useQuery(
-        "transactionsCache",
-        async () => {
-          const config = {
-            method: "GET",
-            headers: {
-              Authorization: "Basic " + localStorage.token,
-            },
-          };
-          const response = await api.get("/transactions", config);
-          return response.data;
+        } catch (error) {
+            console.log(error);
         }
-      );
+    }
+
+    const getTransactions = async() => {
+        try {
+         
+            const response = await API.get("/transactions");
+            setTransactions(response.data.data)
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(()=>{
+        getTransactions()
+        getProfile()
+    },[])
+
 
     return (
         <div>
@@ -101,7 +102,7 @@ const Profil = () => {
                                 <div  key={index} className="kotak mb-3">
                                     <div  className="row">
                                     <div  className="col-3 mt-3">
-                                    <img src={`http://localhost:5000/uploads/${item.product.image}`} width= "70px"/>
+                                    <img src={item.product.image} width= "70px"/>
                                     </div>
                                     <div style={{fontSize: "9px"}} className="col mt-1 text-white">
                                         <div className="row">
