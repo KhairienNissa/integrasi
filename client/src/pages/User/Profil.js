@@ -58,8 +58,8 @@ const Profil = () => {
                     
 
                     <div className="row justify-content-center mt-4">
-                       <div className="col-md-5">
-                           <h3 className="text-danger fw-bolder">My Profil</h3>
+                       <div className="col-md-6">
+                           <h4 className="text-danger fw-bolder mb-4">My Profile</h4>
                            <div className="row mt-3">
                                 <div className="col">
                                     <div className="col-md-3" >
@@ -94,7 +94,7 @@ const Profil = () => {
 
                        <div className="col-md-4  text-danger">
                            <div className="row">
-                             <h4 className="text-danger fw-bolder">My Transaction</h4> 
+                             <h4 className="text-danger fw-bolder mb-3">My Transaction</h4> 
                            </div>
                            {transactions?.length !== 0 ? (
                             <div className="row mt-2">

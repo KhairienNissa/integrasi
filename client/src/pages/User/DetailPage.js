@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../component/style.css';
 import NavbarUser from '../../component/NavbarUser';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Detail } from '../../DataDummy/DetailProduct';
-import { useQuery, useMutation } from 'react-query';
+
 import convertRupiah from 'rupiah-format';
 import { API } from '../../Config/api';
 
@@ -15,17 +14,6 @@ const DetailPage = () => {
   const navigate = useNavigate()
   const { id } = useParams();
 
-  // let { data: product, refetch } = useQuery("Cache", async () => {
-  //   const config = {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: "Basic " + localStorage.token,
-  //     },
-  //   };
-  //   const response = await API.get("/product/" + id, config);
-  //   console.log(response);
-  //   return response.data.data;
-  // });
 
   const [product,setProduct]=useState('')
 
@@ -49,7 +37,7 @@ const DetailPage = () => {
     //change this to the script source you want to load, for example this is snap.js sandbox env
     const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
     //change this according to your client-key
-    const myMidtransClientKey = "SB-Mid-client-yMIcmA1HzPvyaRsh";
+    const myMidtransClientKey = "SB-Mid-client-YFY4KOLjGFVPvIVW";
   
     let scriptTag = document.createElement("script");
     scriptTag.src = midtransScriptUrl;
@@ -66,59 +54,7 @@ const DetailPage = () => {
   console.log(product);
 
 
-  // const handleBuy = useMutation(async () => {
-  //   try {
 
-  //     const data = {
-  //       idProduct: product.id,
-  //       idSeller: product.user.id,
-  //       price: product.price,
-  //     };
-
-  //     console.log(data);
-
-  //     const body = JSON.parse(JSON.stringify(data));
-
-  //     console.log(body);
-
-  //     const config = {
-  //       method: "POST",
-  //       headers: {
-  //         Authorization: "Basic " + localStorage.token,
-  //         'Content-type': 'application/json',
-  //       },
-  //       body,
-  //     };
-
-
-  //     const response = await API.post('/transaction', config);
-  //     console.log(response);
-  //     const token = response.payment.token;
-
-  //     window.snap.pay(token, {
-  //       onSuccess: function (result) {
-  //         /* You may add your own implementation here */
-  //         console.log(result);
-  //         navigate("/profil");
-  //       },
-  //       onPending: function (result) {
-  //         /* You may add your own implementation here */
-  //         console.log(result);
-  //         navigate("/profil");
-  //       },
-  //       onError: function (result) {
-  //         /* You may add your own implementation here */
-  //         console.log(result);
-  //       },
-  //       onClose: function () {
-  //         /* You may add your own implementation here */
-  //         alert("you closed the popup without finishing the payment");
-  //       },
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // });
 
   const handleBuy = async() =>  {
     try {
@@ -139,21 +75,21 @@ const DetailPage = () => {
 
       window.snap.pay(token, {
         onSuccess: function (result) {
-          /* You may add your own implementation here */
+       
           console.log(result);
           navigate("/profil");
         },
         onPending: function (result) {
-          /* You may add your own implementation here */
+      
           console.log(result);
           navigate("/profil");
         },
         onError: function (result) {
-          /* You may add your own implementation here */
+        
           console.log(result);
         },
         onClose: function () {
-          /* You may add your own implementation here */
+    
           alert("you closed the popup without finishing the payment");
         },
       });

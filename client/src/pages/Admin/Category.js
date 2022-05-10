@@ -27,8 +27,8 @@ const Category = () => {
                        <div className="col-10">
                         <h4>List Category</h4>
                         </div>
-                        <div className="col" style={{marginLeft : "35px"}}>
-                                <button className='buttonADD' onClick={()=> navigate ('/add-category') }>Add Category</button>
+                        <div className="col" style={{marginLeft : "120px"}}>
+                                <button className='buttonADD' onClick={()=> navigate ('/add-category') }>Add</button>
                         </div>
                     </div>
                     <table className="table table-dark">

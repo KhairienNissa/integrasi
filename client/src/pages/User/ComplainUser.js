@@ -115,13 +115,13 @@ export default function Complain() {
     return (
         <>
             <NavbarUser title={title} />
-            <Container fluid style={{height: '89.5vh'}}>
+            <Container fluid style={{height: '84vh'}}>
                 <Row className="mx-4">
-                    <Col md={3} style={{height: '89.5vh'}} className="px-3 border-end border-dark overflow-auto">
+                    <Col md={3} style={{height: '87.9vh'}} className="px-3 border-end border-dark overflow-auto">
                         <Contact dataContact={contacts}  clickContact={onClickContact} contact={contact} />
                     </Col>
                     {/* code here */}
-                    <Col  md={9} style={{maxHeight: '89.5vh'}} className="px-0">
+                    <Col  md={9} style={{maxHeight: '87.9vh'}} className="px-0">
                         <Chat contact={contact} messages={messages} user={context.user} sendMessage={onSendMessage}/>
                     </Col>
                 </Row>

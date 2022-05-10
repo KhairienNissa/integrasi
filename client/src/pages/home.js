@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import '../component/style.css';
 import NavbarUser from '../component/NavbarUser';
-
 import CardProduct from '../component/Card';
 import { Detail } from '../DataDummy/DetailProduct';
 import { useQuery } from 'react-query';
 import { API } from '../Config/api';
 import convertRupiah from 'rupiah-format';
-// import SearchBar from 'react-bootstrap'
+
 
 const ProductShop = () => {
     const [search, setSearch] = useState('')
@@ -20,15 +19,11 @@ const ProductShop = () => {
     
   });
 
-    //  products = products.filter(item => item.name.toLowerCase().includes(search))
-        // let dataSearch = products.product.filter((value) => {
-        //     return value.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())
-        // })
 
     return ( 
             <div>
                
-     <NavbarUser search={search} setSearch={setSearch}/>
+     <NavbarUser/>
         <div className="container-fluid">
                 <div className="row mt-5 ms-5 text-danger">
                     <h2 className="fw-bold" style={{marginLeft:"-10px"}}>Product</h2>

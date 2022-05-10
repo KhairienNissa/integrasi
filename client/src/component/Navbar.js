@@ -26,7 +26,7 @@ const Navbar = () => {
 return (
 
     <div>
-          <nav className="navbar navbar-expand-lg navbar-dark text-white ">
+          <nav className="navbar navbar-expand-lg navbar-dark text-white "  >
           <div className="container-fluid px-5 pt-2">
         <img src={frame} width="65px"/>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

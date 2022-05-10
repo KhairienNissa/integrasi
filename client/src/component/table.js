@@ -2,11 +2,8 @@ import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
 import AlertDelete from './alert';
-
 import { API } from '../Config/api';
 import { useQuery, useMutation } from 'react-query';
-// import { useQuery } from 'react-query';
-// import { API } from '../Config/api'
 
 
 

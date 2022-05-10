@@ -68,7 +68,14 @@ const Login = () => {
               </Alert>
             );
             setMessage(alert);
-          } 
+          } else {
+            const alert = (
+              <Alert variant="danger" className="py-1">
+                Login failed
+              </Alert>
+            );
+            setMessage(alert);
+          }
         } catch (error) {
           const alert = (
             <Alert variant="danger" className="py-1 alertfailed">
